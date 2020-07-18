@@ -1,43 +1,26 @@
-import React, { useEffect, Fragment } from "react";
-import AOS from "aos";
-import $ from "jquery";
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-import Header from "./components/Header";
-import Home from "./components/Home";
-import About from "./components/About";
-import Contact from "./components/Contact";
-
-import "aos/dist/aos.css";
-import "./assets/styles/main.scss";
-
-const App = () => {
-  useEffect(() => {
-    AOS.init({ once: true });
-
-    let navElement = $("nav");
-
-    $(function() {
-      $(window).scrollTop() > navElement.innerHeight()
-        ? navElement.addClass("sticky")
-        : navElement.removeClass("sticky");
-    });
-    $(window).on("scroll", function() {
-      $(window).scrollTop() > navElement.innerHeight()
-        ? navElement.addClass("sticky")
-        : navElement.removeClass("sticky");
-    });
-  });
-
+function App() {
   return (
-    <Fragment>
-      <Header />
-      <main>
-        <Home />
-        <About />
-        <Contact />
-      </main>
-    </Fragment>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
-};
+}
 
 export default App;
